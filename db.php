@@ -1,16 +1,13 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+$host = getenv("MYSQLHOST");
+$user = getenv("MYSQLUSER");
+$password = getenv("MYSQLPASSWORD");
+$database = getenv("MYSQLDATABASE");
+$port = getenv("MYSQLPORT");
 
-
-$conn = new mysqli(
-  "sql107.infinityfree.com",
-  "if0_42221288",
-  "MRMPVwoaDSDG",
-  "if0_42221288_projets"
-);
+$conn = new mysqli($host, $user, $password, $database, $port);
 
 if ($conn->connect_error) {
-    die("Connexion echouee: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>
